@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body_Temperature_Records_2</title>
+</head>
+<body>
+    <br>
+    <h1>体温の計測結果を入力してください。</h1>
+    <form action="{{ url_for('add_entry') }}" method=post>
+        <p>社員コードは？　<input type="text" name="jcode" maxlength="7"> ※半角英数字7桁で！</p>
+        <p>今朝の体温は？　<input type="text" name="temp" maxlength="4"> ※半角英数字 oo.o で！</p>
+        <p><input type="submit" value="送信"></p>
+    </form>
+    <br>
+    <p>[送信履歴]</p>
+    <ul class="entries">
+        {% for entry in entries %}
+        <li>社員コード：{{entry.jcode}} / 体温：{{entry.temp}} / 検温日時：{{entry.date}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
