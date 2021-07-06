@@ -13,3 +13,5 @@ def add_entry():
     db.session.add(entry)
     db.session.commit()
     return flask.redirect(flask.url_for('show_entries'))
+
+# add comment for test change
